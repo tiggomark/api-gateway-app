@@ -6,7 +6,7 @@ spring:
   application:
     name: api-gateway-app
   config:
-    uri: ${CONFIG_SERVER_URL:http://config-app:8888/}
+    import: ${CONFIG_SERVER_URL:http://config-app:8888/}
 
 
 
