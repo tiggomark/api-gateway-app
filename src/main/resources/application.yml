@@ -6,7 +6,7 @@ spring:
   application:
     name: api-gateway-app
   config:
-    import: http://config-app:8888
+    import: http://config-app:8888/
 
 
 
