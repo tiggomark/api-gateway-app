@@ -1,6 +1,6 @@
 
 server:
-  port: ${API_GATEWAY_APP_PORT:80}
+  port: ${API_GATEWAY_APP_PORT:8081}
 
 spring:
   application:
