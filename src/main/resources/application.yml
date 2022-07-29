@@ -7,6 +7,21 @@ spring:
     name: api-gateway-app
   config:
     import: configserver:http://config-app:8888/
+  cloud:
+    gateway:
+      routes:
+        - id: tiggo-op
+          uri: lb://tiggo-op
+          predicates:
+            - Path=/v1/elastic/**, /v1/lead/**, /v1/lead-transaction/**, /v1/template-export/**, /v1/domain/**, /v1/socio/**
+
+        - id: customer-app
+          uri: lb://customer-app
+          predicates:
+            - Path=/v1/user/**
+
+
+
 
 
 
