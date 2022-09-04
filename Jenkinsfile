@@ -49,7 +49,7 @@ node {
     stage(name: 'Deploy to Docker Container') {
         echo 'Deploying images to docker container'
         sh "docker rm --force $PROJECT_NAME"
-        sh "docker run --network cluster-network -p 8081:8081 --name $PROJECT_NAME -d  ${repositoryUrl}/$PROJECT_NAME:$tagVersion"
+        sh "docker run --network cluster-network -p 80:80 --name $PROJECT_NAME -d  ${repositoryUrl}/$PROJECT_NAME:$tagVersion"
         echo "Deploy de ${PROJECT_NAME} para o ambiente ${environment} finalizado com sucesso"
         //sendMsgToSlack("Deploy de ${PROJECT_NAME} para o ambiente ${environment} finalizado com sucesso")
         currentBuild.result = "SUCCESS"

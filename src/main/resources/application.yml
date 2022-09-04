@@ -1,12 +1,16 @@
 
 server:
-  port: ${API_GATEWAY_APP_PORT:8081}
+  port: ${API_GATEWAY_APP_PORT:80}
+
+eureka:
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone : http://eureka-server-app:8761/eureka/
 
 spring:
   application:
     name: api-gateway-app
-  config:
-    import: configserver:http://config-app:8888/
   cloud:
     gateway:
       routes:
@@ -18,7 +22,7 @@ spring:
         - id: customer-app
           uri: lb://customer-app
           predicates:
-            - Path=/v1/user/**
+            - Path=/v1/user/**, /v1/auth/**
 
 
 
