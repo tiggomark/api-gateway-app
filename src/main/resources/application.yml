@@ -17,7 +17,8 @@ spring:
           uri: lb://CUSTOMER-APP
           predicates:
             - Path=/user/**
-
+            - Path=/auth/**
+            - Path=/health/**
 
 
 
