@@ -16,8 +16,8 @@ spring:
         - id: customer-app
           uri: lb://CUSTOMER-APP
           predicates:
-            - Path=/user/**
-            - Path=/auth/**
+            - Path=/user/**, Path=/auth/**
+
 
 
 
