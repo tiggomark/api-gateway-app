@@ -4,9 +4,8 @@ server:
 
 eureka:
   client:
-    fetchRegistry: true
     serviceUrl:
-      defaultZone : http://eureka-server-app:8761/eureka/
+      defaultZone: http://eureka-server-app:8761/eureka
 
 spring:
   application:
@@ -14,15 +13,10 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: tiggo-op
-          uri: lb://tiggo-op
-          predicates:
-            - Path=/v1/elastic/**, /v1/lead/**, /v1/lead-transaction/**, /v1/template-export/**, /v1/domain/**, /v1/socio/**
-
         - id: customer-app
-          uri: lb://customer-app
+          uri: lb://CUSTOMER-APP
           predicates:
-            - Path=/v1/user/**
+            - Path=/user/**
 
 
 
