@@ -49,7 +49,7 @@ node {
     stage(name: 'Deploy to Docker Container') {
         echo 'Deploying images to docker container'
         sh "docker rm --force $PROJECT_NAME"
-        sh "docker service create --network cluster-network-overlay -p 80:80 --name $PROJECT_NAME -d  ${repositoryUrl}/$PROJECT_NAME:$tagVersion"
+        sh "docker service create --network cluster-network-overlay -p 8081:8081 --name $PROJECT_NAME -d  ${repositoryUrl}/$PROJECT_NAME:$tagVersion"
         echo "Deploy de ${PROJECT_NAME} para o ambiente ${environment} finalizado com sucesso"
         //sendMsgToSlack("Deploy de ${PROJECT_NAME} para o ambiente ${environment} finalizado com sucesso")
         currentBuild.result = "SUCCESS"
