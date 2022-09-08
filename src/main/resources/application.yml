@@ -13,11 +13,14 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: customer-app
+        - id: user
           uri: lb://CUSTOMER-APP
           predicates:
-            - Path=/user/**, Path=/auth/**
-
+            - Path=/user/**
+        - id: auth
+          uri: lb://CUSTOMER-APP
+          predicates:
+            - Path=/auth/**
 
 
 
