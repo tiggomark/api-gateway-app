@@ -18,7 +18,6 @@ spring:
           predicates:
             - Path=/user/**
             - Path=/auth/**
-            - Path=/health/**
 
 
 
